@@ -7,7 +7,7 @@ class PrintAll
   def initialize(digits,size=2)
     @digits = digits.collect {|digit| SevenSegments.new(digit,size) }
     @raw_digits=digits
-    fail "#{digits} contains a non-digit value" unless valid_values?
+    raise ArgumentError, "#{digits} has a non-digit value" unless valid_values?
     print_all
   end
 
