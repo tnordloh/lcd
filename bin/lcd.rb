@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 
-require_relative '../lib/print_all'
+require_relative '../lib/lcd'
 
 size=2 
 
@@ -18,9 +18,9 @@ fail "no argument provided" if ARGV[-1].nil?
 fail "lcd size is 0 or less; invalid" if (size<=0)
 
 fail "not a digit" if !!ARGV[-1][/^0-9/]
-arg_numbers= ARGV[-1].chars
+digits= ARGV[-1].chars
 
 
-puts PrintAll.new(arg_numbers,size).to_s
+puts LCD.new(digits,size).to_s
 
 #lcd= Seven_segments.new(ARGV[-1],size)

@@ -1,6 +1,6 @@
 
 
-class PrintAll
+class LCD
 
   require_relative 'seven_segments'
 
