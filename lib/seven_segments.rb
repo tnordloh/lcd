@@ -1,4 +1,16 @@
 require_relative 'starting_point'
+SEGMENTS=[]
+                # T  TR  BR  B   BL  TL  M
+    SEGMENTS << [true ,true ,true ,true ,true ,true ,false]
+    SEGMENTS << [false,true ,true ,false,false,false,false]
+    SEGMENTS << [true ,true ,false,true ,true ,false,true ]
+    SEGMENTS << [true ,true ,true ,true ,false,false,true ]
+    SEGMENTS << [false,true ,true ,false,false,true ,true ]
+    SEGMENTS << [true ,false,true ,true ,false,true ,true ]
+    SEGMENTS << [true ,false,true ,true ,true ,true ,true ]
+    SEGMENTS << [true ,true ,true ,false,false,false,false]
+    SEGMENTS << [true ,true ,true ,true ,true ,true ,true ]
+    SEGMENTS << [true ,true ,true ,true ,false,true ,true ]
 class SevenSegments
   #addressing 7-segments in the traditional manner found on wikipedia where
   #T =top          segment
@@ -12,19 +24,7 @@ class SevenSegments
   def initialize(number,size = 2)
     @number=number.to_i
     @size=size.to_i
-    segments=[]
-                # T  TR  BR  B   BL  TL  M
-    segments << [true ,true ,true ,true ,true ,true ,false]
-    segments << [false,true ,true ,false,false,false,false]
-    segments << [true ,true ,false,true ,true ,false,true ]
-    segments << [true ,true ,true ,true ,false,false,true ]
-    segments << [false,true ,true ,false,false,true ,true ]
-    segments << [true ,false,true ,true ,false,true ,true ]
-    segments << [true ,false,true ,true ,true ,true ,true ]
-    segments << [true ,true ,true ,false,false,false,false]
-    segments << [true ,true ,true ,true ,true ,true ,true ]
-    segments << [true ,true ,true ,true ,false,true ,true ]
-    @current_segment=segments[@number]
+    @current_segment=SEGMENTS[@number]
     #size of my_lcd array is a minimym of 3 across by 5 down.  Size increases by one position
     #horizontally, and by two positions vertically.  
     @my_lcd = build_display
