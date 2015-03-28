@@ -1,7 +1,7 @@
 class Segment
 
   def initialize(size, position)
-    @size,@position = start_x,size, position
+    @size,@position = size, position
   end
 
   def direction
