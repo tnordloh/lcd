@@ -27,8 +27,12 @@ class SevenSegments
     @current_segment=segments[@number]
     #size of my_lcd array is a minimym of 3 across by 5 down.  Size increases by one position
     #horizontally, and by two positions vertically.  
-    @my_lcd = Array.new((@size*2+3)) { Array.new((@size+2), " ") }
+    @my_lcd = build_display
     light_segments
+  end
+
+  def build_display
+    Array.new((@size*2+3)) { Array.new((@size+2), " ") }
   end
 
   def lcd_size
