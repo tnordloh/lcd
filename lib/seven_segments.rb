@@ -1,4 +1,4 @@
-require_relative 'starting_point'
+require_relative 'Segment'
 SEGMENTS=[]
                 # T  TR  BR  B   BL  TL  M
     SEGMENTS << [true ,true ,true ,true ,true ,true ,false]
@@ -43,11 +43,11 @@ class SevenSegments
     @my_lcd[row].join + " "
   end
 
-  def fill(direction)
-    if(direction.direction == :across) then
-      @size.times { |counter|  @my_lcd[direction.x][direction.y+counter] = "-" }
+  def fill(segment)
+    if(segment.direction == :across) then
+      @size.times { |counter|  @my_lcd[segment.x][segment.y+counter] = "-" }
     else
-      @size.times { |counter|  @my_lcd[direction.x+counter][direction.y] = "|" }
+      @size.times { |counter|  @my_lcd[segment.x+counter][segment.y] = "|" }
     end
   end
 
@@ -56,8 +56,7 @@ class SevenSegments
     fail "segment number #{this_segment} out of range" unless (0..6).include?(this_segment)
     temp_x = x_starting_point(this_segment)
     temp_y = y_starting_point(this_segment)
-    temp_direction = direction(this_segment)
-    StartingPoint.new(temp_x,temp_y,temp_direction)
+    Segment.new(temp_x,temp_y,this_segment)
   end
 
   def direction(segment)
