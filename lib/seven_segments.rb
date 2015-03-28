@@ -49,20 +49,9 @@ class SevenSegments
 
   def find_segment_start(segment)
     fail "segment number #{segment} out of range" unless (0..6).include?(segment)
-    temp_x = x_starting_point(segment)
-    Segment.new(temp_x,@size,segment)
+    Segment.new(@size,segment)
   end
 
-  def x_starting_point(segment)
-    points = {0 => 0,
-             1 => 1,
-             2 => @size + 2,
-             3 => @size * 2 + 2,
-             4 => @size +2,
-             5 => 1 ,
-             6 => @size + 1 }
-    points[segment]
-  end
 
   def light_segments
     @current_segment.each_with_index { |this_segment,i|
