@@ -39,9 +39,12 @@ class SevenSegments
     @my_lcd.size()
   end
 
+  def to_s(row)
+    @my_lcd[row].join + " "
+  end
+
   def print_row(row)
-    print @my_lcd[row].join
-    print " "
+    print to_s(row)
   end
 
   def fill(direction)
