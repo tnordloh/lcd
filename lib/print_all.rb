@@ -1,6 +1,11 @@
-class Printall
+
+
+class PrintAll
+
+  require_relative 'seven_segments'
+
   def initialize(digits,size=2)
-    @digits = digits.collect {|digit| Seven_segments.new(digit,size) }
+    @digits = digits.collect {|digit| SevenSegments.new(digit,size) }
     print_all
   end
   def print_all
