@@ -1,3 +1,4 @@
+require_relative 'starting_point'
 class SevenSegments
   #addressing 7-segments in the traditional manner found on wikipedia where
   #T =top          segment
@@ -58,19 +59,19 @@ class SevenSegments
     ## James says this probably should be in an array
     case this_segment
     when 0
-     Starting_point.new(0,1,:across) #segment a (top)
+     StartingPoint.new(0,1,:across) #segment a (top)
     when 1
-     Starting_point.new(1, @size+1 ,:down) #segment b (TR)
+     StartingPoint.new(1, @size+1 ,:down) #segment b (TR)
     when 2
-     Starting_point.new( @size+2 , @size+1 ,:down) #c (BR)
+     StartingPoint.new( @size+2 , @size+1 ,:down) #c (BR)
     when 3
-     Starting_point.new( @size*2+2,1,:across) #d (B)
+     StartingPoint.new( @size*2+2,1,:across) #d (B)
     when 4
-     Starting_point.new(@size+2 ,0,:down) #e (BL)
+     StartingPoint.new(@size+2 ,0,:down) #e (BL)
     when 5
-     Starting_point.new(1,0,:down) #e (TL)
+     StartingPoint.new(1,0,:down) #e (TL)
     when 6
-     Starting_point.new(@size+1,1,:across) #e (M)
+     StartingPoint.new(@size+1,1,:across) #e (M)
     else
       fail "segment number #{this_segment} out of range"
     end

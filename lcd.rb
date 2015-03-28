@@ -1,12 +1,6 @@
 #!/usr/bin/env ruby
 
 require_relative 'lib/print_all'
-class Starting_point
-  attr_reader :x, :y, :direction
-  def initialize(start_x,start_y, direction)
-    @x,@y,@direction = start_x,start_y, direction
-  end
-end
 
 size=2 
 
