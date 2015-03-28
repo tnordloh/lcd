@@ -43,10 +43,6 @@ class SevenSegments
     @my_lcd[row].join + " "
   end
 
-  def print_row(row)
-    print to_s(row)
-  end
-
   def fill(direction)
     if(direction.direction == :across) then
       @size.times { |counter|  @my_lcd[direction.x][direction.y+counter] = "-" }

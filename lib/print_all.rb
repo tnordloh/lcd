@@ -13,7 +13,7 @@ class PrintAll
 
   def print_all
     @digits[0].lcd_size.times {|row|
-      @digits.each {|segment| segment.print_row(row) }
+      @digits.each {|segment| print segment.to_s(row) }
       puts
     }
   end
