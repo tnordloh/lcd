@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 
-require_relative 'lib/print_all'
+require_relative '../lib/print_all'
 
 size=2 
 
