@@ -8,7 +8,6 @@ class PrintAll
     @digits = digits.collect {|digit| SevenSegments.new(digit,size) }
     @raw_digits=digits
     raise ArgumentError, "#{digits} has a non-digit value" unless valid_values?
-    print print_all
   end
 
   def print_all

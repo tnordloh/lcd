@@ -21,6 +21,6 @@ fail "not a digit" if !!ARGV[-1][/^0-9/]
 arg_numbers= ARGV[-1].chars
 
 
-PrintAll.new(arg_numbers,size)
+puts PrintAll.new(arg_numbers,size).print_all
 
 #lcd= Seven_segments.new(ARGV[-1],size)
