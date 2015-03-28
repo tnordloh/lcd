@@ -53,25 +53,28 @@ class SevenSegments
 
   def find_segment_start(this_segment)
     ## James says this probably should be in an array
+    fail "segment number #{this_segment} out of range" unless (0..6).include?(this_segment)
     temp_x = x_starting_point(this_segment)
-    case this_segment
-    when 0
-     StartingPoint.new(temp_x,1,:across) #segment a (top)
-    when 1
-     StartingPoint.new(temp_x,@size+1 ,:down) #segment b (TR)
-    when 2
-     StartingPoint.new(temp_x,@size+1 ,:down) #c (BR)
-    when 3
-     StartingPoint.new(temp_x,1,:across) #d (B)
-    when 4
-     StartingPoint.new(temp_x,0,:down) #e (BL)
-    when 5
-     StartingPoint.new(temp_x,0,:down) #e (TL)
-    when 6
-     StartingPoint.new(temp_x,1,:across) #e (M)
-    else
-      fail "segment number #{this_segment} out of range"
-    end
+    temp_y = y_starting_point(this_segment)
+    temp_direction = direction(this_segment)
+    StartingPoint.new(temp_x,temp_y,temp_direction)
+  end
+
+  def direction(segment)
+    return :across if [0,3,6].include?(segment)
+    :down
+  end
+
+  def y_starting_point(segment)
+    points = { 0 => 1,
+               1 => @size + 1,
+               2 => @size + 1,
+               3 => 1,
+               4 => 0,
+               5 => 0,
+               6 => 1
+    }
+    points[segment]
   end
 
   def x_starting_point(segment)
