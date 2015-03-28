@@ -11,9 +11,7 @@ class SevenSegments
   
   def initialize(number,size = 2)
     @number=number.to_i
-    if (size<=0) then
-      fail "size is 0 or less; invalid"
-    end
+    fail "size is 0 or less; invalid" if (size<=0)
     if ((0..9).include? @number) then
     else
       fail "number not between 0 and 9"
