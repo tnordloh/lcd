@@ -53,7 +53,7 @@ class SevenSegments
 
   def find_segment_start(this_segment)
     ## James says this probably should be in an array
-    temp_x = x_axis(this_segment)
+    temp_x = x_starting_point(this_segment)
     case this_segment
     when 0
      StartingPoint.new(temp_x,1,:across) #segment a (top)
@@ -74,7 +74,7 @@ class SevenSegments
     end
   end
 
-  def x_axis(segment)
+  def x_starting_point(segment)
     points = {0 => 0,
              1 => 1,
              2 => @size + 2,
