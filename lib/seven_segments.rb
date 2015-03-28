@@ -31,10 +31,6 @@ class SevenSegments
     light_segments
   end
 
-  def build_display
-    Array.new((@size*2+3)) { Array.new((@size+2), " ") }
-  end
-
   def lcd_size
     @my_lcd.size()
   end
@@ -51,29 +47,10 @@ class SevenSegments
     end
   end
 
-  def find_segment_start(this_segment)
-    ## James says this probably should be in an array
-    fail "segment number #{this_segment} out of range" unless (0..6).include?(this_segment)
-    temp_x = x_starting_point(this_segment)
-    temp_y = y_starting_point(this_segment)
-    Segment.new(temp_x,temp_y,this_segment)
-  end
-
-  def direction(segment)
-    return :across if [0,3,6].include?(segment)
-    :down
-  end
-
-  def y_starting_point(segment)
-    points = { 0 => 1,
-               1 => @size + 1,
-               2 => @size + 1,
-               3 => 1,
-               4 => 0,
-               5 => 0,
-               6 => 1
-    }
-    points[segment]
+  def find_segment_start(segment)
+    fail "segment number #{segment} out of range" unless (0..6).include?(segment)
+    temp_x = x_starting_point(segment)
+    Segment.new(temp_x,@size,segment)
   end
 
   def x_starting_point(segment)
@@ -94,5 +71,12 @@ class SevenSegments
       end
     }
   end
+
+  private
+
+  def build_display
+    Array.new((@size*2+3)) { Array.new((@size+2), " ") }
+  end
+
 end
 
