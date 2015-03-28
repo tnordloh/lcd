@@ -10,7 +10,7 @@ class PrintAll
     raise ArgumentError, "#{digits} has a non-digit value" unless valid_values?
   end
 
-  def print_all
+  def to_s
     printout = ""
     @digits[0].lcd_size.times {|row|
       printout << @digits.map {|segment| segment.to_s(row) }.join + "\n"
