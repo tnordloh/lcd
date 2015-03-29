@@ -40,6 +40,9 @@ class SevenSegments
   end
 
   def fill(segment)
+   # segment.fill_range.each do |cell|
+   #   @my_lcd[cell[0],cell[1]]= cell[2]
+   # end
     if(segment.direction == :across) then
       @size.times { |counter|  @my_lcd[segment.x][segment.y+counter] = "-" }
     else
@@ -48,14 +51,13 @@ class SevenSegments
   end
 
   def create_segment(segment)
-    fail "segment number #{segment} out of range" unless (0..6).include?(segment)
     Segment.new(@size,segment)
   end
 
 
   def light_segments
-    @digit.each_with_index { |position_lit,i|
-      fill(create_segment(i)) if position_lit
+    @digit.each_with_index { |is_lit,i|
+      fill(create_segment(i)) if is_lit
     }
   end
 
