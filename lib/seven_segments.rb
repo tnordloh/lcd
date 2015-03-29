@@ -47,16 +47,16 @@ class SevenSegments
     end
   end
 
-  def find_segment_start(segment)
+  def create_segment(segment)
     fail "segment number #{segment} out of range" unless (0..6).include?(segment)
     Segment.new(@size,segment)
   end
 
 
   def light_segments
-    @digit.each_with_index { |this_segment,i|
-      if(this_segment) then
-        fill(find_segment_start(i))
+    @digit.each_with_index { |position,i|
+      if(position) then
+        fill(create_segment(i))
       end
     }
   end
