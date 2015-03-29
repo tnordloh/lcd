@@ -24,7 +24,7 @@ class SevenSegments
   def initialize(number,size = 2)
     @number=number.to_i
     @size=size.to_i
-    @current_segment=SEGMENTS[@number]
+    @digit=SEGMENTS[@number]
     #size of my_lcd array is a minimym of 3 across by 5 down.  Size increases by one position
     #horizontally, and by two positions vertically.  
     @my_lcd = build_display
@@ -54,7 +54,7 @@ class SevenSegments
 
 
   def light_segments
-    @current_segment.each_with_index { |this_segment,i|
+    @digit.each_with_index { |this_segment,i|
       if(this_segment) then
         fill(find_segment_start(i))
       end
