@@ -20,4 +20,7 @@ describe Segment do
     ->{Segment.new(-1,4)}.must_raise(ArgumentError)
   end
 
+  it "gives the fill range" do
+    p Segment.new(2,2).fill_range
+  end
 end

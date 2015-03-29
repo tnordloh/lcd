@@ -40,14 +40,14 @@ class SevenSegments
   end
 
   def fill(segment)
-   # segment.fill_range.each do |cell|
-   #   @my_lcd[cell[0],cell[1]]= cell[2]
-   # end
-    if(segment.direction == :across) then
-      @size.times { |counter|  @my_lcd[segment.x][segment.y+counter] = "-" }
-    else
-      @size.times { |counter|  @my_lcd[segment.x+counter][segment.y] = "|" }
+    segment.fill_range.each do |cell|
+      @my_lcd[cell[0]][cell[1]]= cell[2]
     end
+    #if(segment.direction == :across) then
+    #  @size.times { |counter|  @my_lcd[segment.x][segment.y+counter] = "-" }
+    #else
+    #  @size.times { |counter|  @my_lcd[segment.x+counter][segment.y] = "|" }
+    #end
   end
 
   def create_segment(segment)

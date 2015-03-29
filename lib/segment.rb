@@ -18,13 +18,9 @@ class Segment
   def fill_range
     returnme = []
     if(direction == :across) then
-      @size.times { |counter|  
-        returnme << [x,y+counter,"-"]
-      }
+      @size.times { |counter|  returnme << [x,y+counter,"-"] }
     else
-      @size.times { |counter|  
-        returnme << [x+counter,y,"-"]
-      }
+      @size.times { |counter|  returnme << [x+counter,y,"|"] }
     end
     returnme
   end
