@@ -54,10 +54,8 @@ class SevenSegments
 
 
   def light_segments
-    @digit.each_with_index { |position,i|
-      if(position) then
-        fill(create_segment(i))
-      end
+    @digit.each_with_index { |position_lit,i|
+      fill(create_segment(i)) if position_lit
     }
   end
 
