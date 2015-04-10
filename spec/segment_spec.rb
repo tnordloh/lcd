@@ -21,6 +21,7 @@ describe Segment do
   end
 
   it "gives the fill range" do
-    p Segment.new(2,2).fill_range
+    return_value= [ {x: 4,y: 3,char: "|" }, {x: 5,y: 3,char: "|" } ]
+    Segment.new(2,2).fill_range.must_equal(return_value)
   end
 end

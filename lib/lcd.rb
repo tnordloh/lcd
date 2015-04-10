@@ -6,20 +6,19 @@ class LCD
 
   def initialize(digits,size=2)
     @digits = digits.map {|digit| SevenSegments.new(digit,size) }
-    @raw_digits=digits
     raise ArgumentError, "#{digits} has a non-digit value" unless valid_values?
   end
 
   def to_s
-    printout = ""
-    @digits[0].lcd_size.times {|row|
-      printout << @digits.map {|segment| segment.to_s(row) }.join + "\n"
-    }
-    printout
+    "".tap do |printout|
+      @digits[0].height.times do |row|
+        printout << @digits.map {|segment| segment.to_s(row) }.join + "\n"
+      end
+    end
   end
 
   def valid_values?
-    !!(@raw_digits.join !~ /[^0-9]/)
+    @digits.any? { |d| !!SEGMENT_MAP[d.number] }
   end
 
 end
