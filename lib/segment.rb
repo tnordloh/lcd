@@ -15,7 +15,7 @@ class Segment
     :down
   end
 
-  def fill_range
+  def fill_segment
     returnme = []
     if(direction == :across) then
       @size.times { |counter|  returnme << {x: x, y: y+counter, char: "-"} }
@@ -26,26 +26,27 @@ class Segment
   end
 
   def y
-    points = { 0 => 1,
-               1 => @size + 1,
-               2 => @size + 1,
-               3 => 1,
-               4 => 0,
-               5 => 0,
-               6 => 1
-    }
-    points[@position]
+    segment_start_x = { 0 => 1,
+                          1 => @size + 1,
+                          2 => @size + 1,
+                          3 => 1,
+                          4 => 0,
+                          5 => 0,
+                          6 => 1
+                        }
+    segment_start_x[@position]
   end
 
   def x
-    points = {0 => 0,
-             1 => 1,
-             2 => @size + 2,
-             3 => @size * 2 + 2,
-             4 => @size +2,
-             5 => 1 ,
-             6 => @size + 1 }
-    points[@position]
+    segment_start_y = { 0 => 0,
+                        1 => 1,
+                        2 => @size + 2,
+                        3 => @size * 2 + 2,
+                        4 => @size +2,
+                        5 => 1 ,
+                        6 => @size + 1 
+                      }
+    segment_start_y[@position]
   end
 
   private
