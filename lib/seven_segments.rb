@@ -39,7 +39,7 @@ class SevenSegments
   end
 
   def fill(segment)
-    segment.fill_range.each do |cell|
+    segment.fill_segment.each do |cell|
       @my_lcd[ cell[:x] ][ cell[:y] ] = cell[:char]
     end
   end
@@ -47,7 +47,6 @@ class SevenSegments
   def create_segment(segment)
     Segment.new(@size,segment)
   end
-
 
   def light_segments
     @segments.each_with_index { |is_lit,i|
