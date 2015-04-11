@@ -18,7 +18,7 @@ class LCD
   end
 
   def valid_values?
-    @digits.any? { |d| !!SEGMENT_MAP[d.number] }
+    @digits.any? { |d| !SEGMENT_MAP[d.number] }
   end
 
 end
