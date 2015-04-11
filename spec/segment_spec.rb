@@ -20,8 +20,8 @@ describe Segment do
     ->{Segment.new(-1,4)}.must_raise(ArgumentError)
   end
 
-  it "gives the fill range" do
+  it "gives the segment fill range" do
     return_value= [ {x: 4,y: 3,char: "|" }, {x: 5,y: 3,char: "|" } ]
-    Segment.new(2,2).fill_range.must_equal(return_value)
+    Segment.new(2,2).fill_segment.must_equal(return_value)
   end
 end
