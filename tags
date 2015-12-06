@@ -1,0 +1,31 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+LCD	lib/lcd.rb	/^class LCD$/;"	c
+Segment	lib/segment.rb	/^class Segment$/;"	c
+SevenSegments	lib/seven_segments.rb	/^class SevenSegments$/;"	c
+build_display	lib/seven_segments.rb	/^  def build_display$/;"	f	class:SevenSegments
+calculate_x_offsets	lib/segment.rb	/^  def calculate_x_offsets$/;"	f	class:Segment
+calculate_y_offsets	lib/segment.rb	/^  def calculate_y_offsets$/;"	f	class:Segment
+create_segment	lib/seven_segments.rb	/^  def create_segment(segment)$/;"	f	class:SevenSegments
+describe_segment	lib/segment.rb	/^  def describe_segment$/;"	f	class:Segment
+fill	lib/seven_segments.rb	/^  def fill(segment)$/;"	f	class:SevenSegments
+height	lib/seven_segments.rb	/^  def height$/;"	f	class:SevenSegments
+initialize	lib/lcd.rb	/^  def initialize(digits,size=2)$/;"	f	class:LCD
+initialize	lib/segment.rb	/^  def initialize(size, position)$/;"	f	class:Segment
+initialize	lib/seven_segments.rb	/^  def initialize(number,size = 2)$/;"	f	class:SevenSegments
+light_segments	lib/seven_segments.rb	/^  def light_segments$/;"	f	class:SevenSegments
+position_valid?	lib/segment.rb	/^  def position_valid?$/;"	f	class:Segment
+size_valid?	lib/segment.rb	/^  def size_valid?$/;"	f	class:Segment
+to_a	lib/seven_segments.rb	/^  def to_a$/;"	f	class:SevenSegments
+to_s	lib/lcd.rb	/^  def to_s$/;"	f	class:LCD
+valid?	lib/seven_segments.rb	/^  def valid?(number)$/;"	f	class:SevenSegments
+validate_and_set_number	lib/seven_segments.rb	/^  def validate_and_set_number(number)$/;"	f	class:SevenSegments
+width	lib/seven_segments.rb	/^  def width$/;"	f	class:SevenSegments
+x	lib/segment.rb	/^  def x$/;"	f	class:Segment
+x_offsets	lib/segment.rb	/^  def x_offsets$/;"	f	class:Segment
+y	lib/segment.rb	/^  def y$/;"	f	class:Segment
+y_offsets	lib/segment.rb	/^  def y_offsets$/;"	f	class:Segment

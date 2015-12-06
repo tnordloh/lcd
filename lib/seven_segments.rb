@@ -7,8 +7,8 @@ require_relative 'Segment'
 #BL=bottom left  segment
 #TL=top left     segment
 #M =middle       segment
-SEGMENT_MAP= {
-                # T  TR  BR  B   BL  TL  M
+SEGMENT_CONVERSION_MAP= {
+        # T     TR    BR    B     BL    TL    M
     0 => [true ,true ,true ,true ,true ,true ,false],
     1 => [false,true ,true ,false,false,false,false],
     2 => [true ,true ,false,true ,true ,false,true ],
@@ -23,9 +23,10 @@ SEGMENT_MAP= {
 class SevenSegments
   
   def initialize(number,size = 2)
-    @number=number.to_i
+
+    @number=validate_and_set_number(number)
     @size=size.to_i
-    @segments=SEGMENT_MAP[@number]
+    @segments=SEGMENT_CONVERSION_MAP[@number]
     #size of my_lcd array is a minimym of 3 across by 5 down.  Size increases by one position
     #horizontally, and by two positions vertically.  
     @my_lcd = build_display
@@ -34,18 +35,26 @@ class SevenSegments
 
   attr_reader :number
 
-  def to_s(row)
-    @my_lcd[row].join + " "
-  end
-
-  def fill(segment)
-    segment.fill_segment.each do |cell|
-      @my_lcd[ cell[:x] ][ cell[:y] ] = cell[:char]
+  def to_a
+    @my_lcd.each_with_object([]) do |row,returnme|
+      returnme << row.join
     end
   end
 
-  def create_segment(segment)
-    Segment.new(@size,segment)
+  private
+
+  def validate_and_set_number(number)
+    if valid?(number)
+      number.to_i
+    else
+      raise ArgumentError, "#{number} has a non-digit value"
+    end
+  end
+
+  def fill(segment)
+    segment.describe_segment.each do |cell|
+      @my_lcd[ cell[:x] ][ cell[:y] ] = cell[:char]
+    end
   end
 
   def light_segments
@@ -54,12 +63,18 @@ class SevenSegments
     }
   end
 
-
   def height
     @size * 2 + 3
   end
 
-  private
+  def create_segment(segment)
+    Segment.new(@size,segment)
+  end
+
+  def valid?(number)
+    return (number.size == 1 && number[/[0-9]/]) if number.is_a?(String)
+    (0...9).include?(number)
+  end
   
   def width
     @size + 2
